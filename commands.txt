@@ -1,3 +1,15 @@
 cd /home/wolverine/kafka_2.12-2.8.0/bin
+==========================================================================================================
 export KAFKA_OPTS="-Djava.security.auth.login.config=/home/wolverine/kafka_2.12-2.8.0/bin/kafka-jaas.conf"
+==========================================================================================================
 ./kafka-topics.sh --bootstrap-server 192.168.0.29:9092 --command-config kafka.properties --list
+==========================================================================================================
+./kafka-topics.sh --bootstrap-server 192.168.0.29:9092 --command-config kafka.properties --create --topic my-topic --partitions 2 --replication-factor 2
+
+==========================================================================================================
+./kafka-topics.sh --bootstrap-server 192.168.0.29:9092 --command-config kafka.properties --describe
+
+Topic: my-topic	PartitionCount: 2	ReplicationFactor: 2	Configs: segment.bytes=1073741824
+	Topic: my-topic	Partition: 0	Leader: 1	Replicas: 1,2	Isr: 1,2
+	Topic: my-topic	Partition: 1	Leader: 2	Replicas: 2,1	Isr: 2,1
+==========================================================================================================
