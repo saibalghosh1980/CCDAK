@@ -1,3 +1,7 @@
+Start kafka server
+./bin/zookeeper-server-start.sh ./config/zookeeper.properties
+./bin/kafka-server-start.sh ./config/server.properties
+=======================================================================================================
 cd /home/wolverine/kafka_2.12-2.8.0/bin
 ==========================================================================================================
 export KAFKA_OPTS="-Djava.security.auth.login.config=/home/wolverine/kafka_2.12-2.8.0/bin/kafka-jaas.conf"
