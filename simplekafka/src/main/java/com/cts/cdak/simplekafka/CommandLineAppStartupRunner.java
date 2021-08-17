@@ -15,11 +15,18 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
     @Autowired
     @Qualifier("springManagedProducer")
     Producer kafkaProducer;
+
     @Override
     public void run(String... args) throws Exception {
-        for (int iCounter=0;iCounter<30;iCounter++){
+        int partition = 0;
+        for (int iCounter = 0; iCounter < 30; iCounter++) {
             Thread.sleep(2000);
-            kafkaProducer.sendMessage("Message number::"+iCounter+" and at time ::"+new Date().getTime());
+            kafkaProducer.sendMessage(
+                    "Message number::" + iCounter + " and at time ::" + new Date().getTime());
+            if (partition == 2)
+                partition = 0;
+            else
+                partition = partition + 1;
         }
     }
 }

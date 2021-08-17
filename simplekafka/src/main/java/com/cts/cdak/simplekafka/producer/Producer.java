@@ -12,7 +12,7 @@ import java.util.UUID;
 public class Producer {
 
     //private static final Logger logger = LoggerFactory.getLogger(Producer.class);
-    private static final String TOPIC = "skg-topic-2";
+    private static final String TOPIC = "skg-topic-1";
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
@@ -20,6 +20,12 @@ public class Producer {
     public void sendMessage(String message) {
         log.info(String.format("#### -> Producing message -> %s", message));
         this.kafkaTemplate.send(TOPIC, UUID.randomUUID().toString(), message);
+
+    }
+
+    public void sendMessage(int partition,String message) {
+        log.info(String.format("#### -> Producing message -> %s and partition -> %s", message,partition));
+        this.kafkaTemplate.send(TOPIC,partition, UUID.randomUUID().toString(), message);
 
     }
 }
