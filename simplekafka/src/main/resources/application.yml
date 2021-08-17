@@ -17,3 +17,6 @@ spring:
       bootstrap-servers: kafka-1:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+
+
