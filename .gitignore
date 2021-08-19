@@ -1,0 +1,5 @@
+*/target/**
+**/*.class
+*/*.class
+./kafkastreams/target/**
+kafkastreams/target/classes/com/cts/kafka/streams/StatelessTransformationsMain$1.class
